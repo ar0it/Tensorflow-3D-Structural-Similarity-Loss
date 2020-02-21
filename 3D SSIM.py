@@ -46,16 +46,10 @@ def ssim_loss(y_true, y_pred, k1, k2, L, filter_size):
     l_number_of_pooling = range(v_number_of_pooling)
     v_limit = int(dim/filter_size)
     l_filter_number = range(0, v_limit) #falls dim < filter size -> durch aufrunden lösen
-    v_ssim = 0
     v_ssim_endgueltig = 0
     
     for i in l_number_of_pooling:
-        #y_pred = scipy.ndimage.gaussian_filter(y_pred , sigma = 1.5)
-        #y_true = scipy.ndimage.gaussian_filter(y_true , sigma = 1.5)
-        #y_pred = tf.nn.avg_pool(y_pred,8,strides=1,padding="SAME")
-        #y_true= tf.nn.avg_pool(y_true,8,strides=1,padding="SAME")
         v_ssim = 0
-        
         for iiii in l_filter_number:
             for iii in l_filter_number:                
                 for ii in l_filter_number:
