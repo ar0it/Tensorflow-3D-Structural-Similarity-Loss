@@ -79,9 +79,7 @@ def ssim_loss(y_true, y_pred, k1, k2, L, filter_size):
                     
         y_pred = tf.nn.conv3d(y_pred[0:1, :,:,:,0:1], gauss_kernel, strides=[1, 1, 1, 1, 1], padding="SAME")
         y_true = tf.nn.conv3d(y_true[0:1, :,:,:,0:1], gauss_kernel, strides=[1, 1, 1, 1, 1], padding="SAME")
-        print(v_ssim)
         v_ssim_endgueltig = (v_ssim * l_weights[i]) + v_ssim_endgueltig
-        print(v_ssim_endgueltig, "endgueltig")
     return (1-v_ssim_endgueltig)/2
 
 def dice_loss(k1, k2, L, filter_size):
